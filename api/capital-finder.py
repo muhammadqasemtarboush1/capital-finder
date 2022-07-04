@@ -26,14 +26,14 @@ class handler(BaseHTTPRequestHandler):
                 definition = c_data['capital'][0]
                 countryname = c_data['name']['common']
                 message = str(definition + ' ' + countryname)
-        if country:
-            url = 'https://restcountries.com/v3.1/capital/'
-            r = requests.get(url + country)
-            data = r.json()
-            for c_data in data:
-                definition = c_data['name']['capital']
-                # definitions.append(definition)
-            message = str(definition)
+        # if country:
+        #     url = 'https://restcountries.com/v3.1/capital/'
+        #     r = requests.get(url + country)
+        #     data = r.json()
+        #     for c_data in data:
+        #         definition = c_data['name']['capital']
+        #         # definitions.append(definition)
+        #     message = str(definition)
         else:
             '''
              Santiago is the capital of Chile
