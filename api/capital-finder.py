@@ -8,24 +8,30 @@ class handler(BaseHTTPRequestHandler):
         url_components = parse.urlsplit(s)
         query_string_list = parse.parse_qsl(url_components.query)
         dic = dict(query_string_list)
-        print(dic,"dic")
-        definitions = []
-        if 'word' in dic:
-            word = dic['word']
-            print(word, "word")
+        # definitions = []
+        country = ''
+        capital = ''
+        if 'capital' in dic:
+            capital = dic['capital']
+        if 'country' in dic:
+            country = dic['country']
+
+        '''
+        The capital of Chile is Santiago
+        '''
+        if capital:
             url = 'https://restcountries.com/v3.1/capital/'
-            r = requests.get(url + word)
+            r = requests.get(url + capital)
             data = r.json()
-            print(data,"wordwordwordwordwordwordwordwordword")
-            for word_data in data:
-                definition = word_data['meanings'][0]['definitions'][0]['definition']
-                definitions.append(definition)
-
-            message = str(definitions)
-
+            for c_data in data:
+                definition = c_data['name']['capital']
+                # definitions.append(definition)
+            message = str(definition)
         else:
-            message = "Please provide me with a word"
-
+            '''
+             Santiago is the capital of Chile
+            '''
+            message = "Please provide capital= somthing or country= somthing" + capital + country
 
         self.send_response(200)
         self.send_header('Content-type', 'text/plain')
