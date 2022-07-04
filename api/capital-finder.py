@@ -27,7 +27,7 @@ class handler(BaseHTTPRequestHandler):
                 countryname = c_data['name']['common']
                 message = str(definition + ' is the capital of ' + countryname)
         elif len(country) > 1:
-            url = 'https://restcountries.com/v3.1/capital/'
+            url = 'https://restcountries.com/v3.1/name/'
             r = requests.get(url + country)
             data = r.json()
             for c_data in data:
