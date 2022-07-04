@@ -33,7 +33,7 @@ class handler(BaseHTTPRequestHandler):
             for c_data in data:
                 definition = c_data['name']['common']
                 c_name = c_data['capital'][0]
-            message = str('The capital of' + definition + ' is' + c_name)
+            message = str('The capital of ' + definition + ' is ' + c_name)
         else:
             '''
              Santiago is the capital of Chile
