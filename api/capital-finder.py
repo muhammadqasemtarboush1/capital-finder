@@ -11,7 +11,7 @@ class handler(BaseHTTPRequestHandler):
         definitions = []
         if 'word' in dic:
             word = dic['word']
-            url = 'https://api.dictionaryapi.dev/api/v2/entries/en/'
+            url = 'https://restcountries.com/v3.1/capital/'
             r = requests.get(url + word)
             data = r.json()
             for word_data in data:
