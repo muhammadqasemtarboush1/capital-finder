@@ -31,7 +31,7 @@ class handler(BaseHTTPRequestHandler):
             r = requests.get(url + country)
             data = r.json()
             for c_data in data:
-                definition = c_data['name']['common']
+                definition = c_data[0]['name']['common']
                 c_name = c_data['capital']
             message = str('The capital of' + definition + ' is' + c_name)
         else:
