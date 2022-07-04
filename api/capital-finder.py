@@ -18,22 +18,22 @@ class handler(BaseHTTPRequestHandler):
         '''
         The capital of Chile is Santiago
         '''
-        if capital:
+        if len(capital) > 1:
             url = 'https://restcountries.com/v3.1/capital/'
             r = requests.get(url + capital)
             data = r.json()
             for c_data in data:
                 definition = c_data['capital'][0]
                 countryname = c_data['name']['common']
-                message = str(definition + ' ' + countryname)
-        # if country:
-        #     url = 'https://restcountries.com/v3.1/capital/'
-        #     r = requests.get(url + country)
-        #     data = r.json()
-        #     for c_data in data:
-        #         definition = c_data['name']['capital']
-        #         # definitions.append(definition)
-        #     message = str(definition)
+                message = str(definition + ' is the capital of ' + countryname)
+        elif len(country) > 1:
+            url = 'https://restcountries.com/v3.1/capital/'
+            r = requests.get(url + country)
+            data = r.json()
+            for c_data in data:
+                definition = c_data['name']['common']
+                c_name = c_data['capital']
+            message = str('The capital of' + definition + ' is' + c_name)
         else:
             '''
              Santiago is the capital of Chile
