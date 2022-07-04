@@ -32,7 +32,7 @@ class handler(BaseHTTPRequestHandler):
             data = r.json()
             for c_data in data:
                 definition = c_data['name']['common']
-                c_name = c_data['capital']
+                c_name = c_data['capital'][0]
             message = str('The capital of' + definition + ' is' + c_name)
         else:
             '''
