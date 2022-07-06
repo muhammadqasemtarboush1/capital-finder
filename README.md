@@ -18,3 +18,7 @@ https://1capital-finder.vercel.app/api/capital-finder?
   - countries:
     - https://1capital-finder.vercel.app/api/capital-finder?country=syria
     - https://1capital-finder.vercel.app/api/capital-finder?country=japan
+
+Solving By:
+ - Muhammad Tarboush
+ - Shatha Alrayyani
